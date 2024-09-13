@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {BusinessErrorsInterceptor} from './interceptors/business-errors/business-errors.interceptor';
 import {BusinessLogicException, BusinessError} from './errors/business-errors';
 import {TypeOrmTestingConfig} from './testing-utils/typeorm-testing-config';

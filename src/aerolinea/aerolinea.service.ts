@@ -8,17 +8,18 @@ import { BusinessError, BusinessLogicException, MESSAGES } from '../shared';
 @Injectable()
 export class AerolineaService {
 
+    private relations: string[] = ['aeropuertos'];
     constructor(
         @InjectRepository(AerolineaEntity)
         private readonly aerolineaRepository: Repository<AerolineaEntity>
       ) {}
     
       async findAll(): Promise<AerolineaEntity[]> {
-        return await this.aerolineaRepository.find();
+        return await this.aerolineaRepository.find({relations: this.relations});
       }
     
       async findOne(id: string): Promise<AerolineaEntity> {
-        const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne({where: {id}});
+        const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne({where: {id},relations: this.relations});
         if (!aerolinea) throw new BusinessLogicException(MESSAGES.AEROLINEANOTFOUND, BusinessError.NOT_FOUND);
         return aerolinea;
       }

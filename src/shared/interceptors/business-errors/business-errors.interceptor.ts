@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 /* Global imports */
 import {CallHandler, ExecutionContext, HttpException, HttpStatus, Injectable, NestInterceptor} from '@nestjs/common';
 import {catchError, Observable} from 'rxjs';

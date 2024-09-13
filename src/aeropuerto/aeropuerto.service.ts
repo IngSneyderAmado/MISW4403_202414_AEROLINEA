@@ -7,8 +7,7 @@ import { AeropuertoEntity } from './aeropuerto.entity';
 
 @Injectable()
 export class AeropuertoService {
-     
-    private relations: string[] = ['aerolinea'];
+
     /** Service constructor */
   constructor(
     @InjectRepository(AeropuertoEntity)
@@ -17,10 +16,10 @@ export class AeropuertoService {
 
   /**
    * Get all the aeropuerto
-   * @returns {Promise<AeropuertoEntity[]>} aeropuerto
+   * @returns {Promise<AeropuertoEntity[]>} aeropuertos
    */
   async findAll(): Promise<AeropuertoEntity[]> {
-    return await this.aeropuertoRepository.find({relations: this.relations});
+    return await this.aeropuertoRepository.find();
   }
 
   /**
@@ -30,8 +29,7 @@ export class AeropuertoService {
    */
   async findOne(id: string): Promise<AeropuertoEntity> {
     const culturaGastronoica: AeropuertoEntity = await this.aeropuertoRepository.findOne({
-      where: {id},
-      relations: this.relations
+      where: {id}
     });
     if (!culturaGastronoica) throw new BusinessLogicException(MESSAGES.AEROPUERTONOTFOUND, BusinessError.NOT_FOUND);
     return culturaGastronoica;
