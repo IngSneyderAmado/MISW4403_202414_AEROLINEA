@@ -1,0 +1,1514 @@
+{
+	"info": {
+		"_postman_id": "5cbb5c62-1901-4968-9c25-7bed8afab5fe",
+		"name": "Aerolinea-Aeropuerto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1430972",
+		"_collection_link": "https://www.postman.com/misw-uniandes/workspace/misw4403-202414-aerolinea/collection/1430972-5cbb5c62-1901-4968-9c25-7bed8afab5fe?action=share&source=collection_link&creator=1430972"
+	},
+	"item": [
+		{
+			"name": "Add Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"aerolineaId\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n  \"nombre\": \"pepito perez\",\r\n  \"descripcion\": \"hola mundo\",\r\n  \"fechaFundacion\": \"2015-02-25\",\r\n  \"paginaWeb\": \"www.webweb.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Cultura Gastronómica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cultura oriental\",\r\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\r\n    \"paises\": [\r\n        \"2ae92361-b134-4f35-bdc1-353573a2a2bc\",\r\n        \"bbec19b1-b712-4c4e-8c82-bab7a05c814b\"\r\n    ],\r\n    \"recetas\": [\r\n        \"d1432902-d6fc-4a2d-9a45-db4c51bc60ce\",\r\n        \"2694b0d0-2500-42fd-afab-5ccba9bafa13\"\r\n    ],\r\n    \"restaurantes\": [\r\n        \"41ae0b4c-9d9a-489b-8700-8fbb0348e0df\",\r\n        \"5d2bfe54-707d-4147-8a51-5d36380f2685\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\n    \"nombre\": \"Cultura oriental\",\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\n    \"paises\": [\n        {\n            \"nombre\": \"Japon\"\n        },\n        {\n            \"nombre\": \"china\"\n        }\n    ],\n    \"recetas\": [\n        {\n            \"nombre\": \"Sushi\",\n            \"descripcion\": \"El sushi es un plato japonés que consiste en arroz avinagrado acompañado de pescado crudo, mariscos, verduras o huevos, a menudo envuelto en alga nori.\",\n            \"proceso\": \"Primero se cocina arroz con vinagre, azúcar y sal. Luego, se coloca el arroz sobre una lámina de alga nori, se añaden ingredientes como pescado, mariscos o vegetales, y se enrolla. Finalmente, se corta el rollo en piezas pequeñas y se sirve con salsa de soya, jengibre y wasabi.\",\n            \"foto\": \"https://www.unileverfoodsolutions.com.mx/dam/global-ufs/mcos/NOLA/calcmenu/recipes/MX-recipes/general/sushi-empanizado/main-header.jpg\",\n            \"video\": \"https://www.youtube.com/watch?v=3_nDgGcwCCA\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Gyozas\",\n            \"descripcion\": \"Las gyozas son empanadillas japonesas rellenas de carne, verduras o mariscos, generalmente cocidas al vapor y luego doradas en la sartén.\",\n            \"proceso\": \"Se prepara un relleno de carne picada, vegetales y condimentos, que se coloca en discos de masa. Se doblan las masas, sellando los bordes, y se cocinan al vapor. Luego, se doran en una sartén hasta que queden crujientes por un lado, y se sirven con salsa de soya.\",\n            \"foto\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkQwxZ6tEayjXtnhNHcN3jZWZeO-ACAP6fQ&s\",\n            \"video\": \"https://www.youtube.com/watch?v=OKapgEoPGIM\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        }\n    ],\n    \"restaurantes\": [\n        {\n            \"nombre\": \"El Japones\",\n            \"ciudad\": \"Tokyo\",\n            \"pais\": \"japon\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Sexy seoul\",\n            \"ciudad\": \"Seoul\",\n            \"pais\": \"Korea del sur\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Aeropuerto 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"aeropuertoId\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"camilo daza\", \r\n\"codigo\": \"123\",\r\n\"pais\": \"Colombia\",\r\n\"ciudad\": \"Cucuta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Pais",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Colombia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pais"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\":\"Colombia\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Aeropuerto 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"aeropuertoId2\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"camilo daza\", \r\n\"codigo\": \"123\",\r\n\"pais\": \"Colombia\",\r\n\"ciudad\": \"Cucuta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Pais",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Colombia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pais"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\":\"Colombia\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Aeropuerto 3",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"aeropuertoId3\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"nombre\":\"camilo daza\", \r\n\"codigo\": \"123\",\r\n\"pais\": \"Colombia\",\r\n\"ciudad\": \"Cucuta\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Pais",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Colombia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"pais"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\":\"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\":\"Colombia\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Aeropuerto en Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Pais en Cultura Gastronomica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\": \"Cultura oriental\",\r\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\r\n    \"paises\": [\r\n        {\r\n            \"nombre\": \"Japon\"\r\n        },\r\n        {\r\n            \"nombre\": \"china\"\r\n        },\r\n        {\r\n            \"nombre\": \"Korea del sur\"\r\n        }\r\n    ],\r\n    \"recetas\": [],\r\n    \"restaurantes\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Aeropuerto en Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto con este id no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Pais en Cultura Gastronomica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El pais con este Id no fue encontrado\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Pais en Invalid Cultura Gastronomica",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Pais en Invalid Cultura Gastronomica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"La cultura gastronóica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get All Aeropuertos de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of paises > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Paises de Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\r\n    {\r\n        \"id\": \"c0493abd-9e27-4691-8a8f-b82541e3cc42\",\r\n        \"nombre\": \"China\"\r\n    },\r\n    {\r\n        \"id\": \"4cae8180-d19a-4e58-8667-2e98ffaf7a36\",\r\n        \"nombre\": \"Japon\"\r\n    },\r\n    {\r\n        \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n        \"nombre\": \"Korea del sur\"\r\n    }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "Get All Aeropurerto de Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get All Paises de Invalid Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000",
+								"pais"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Pais de Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\": \"Korea del sur\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Invalid Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto con este id no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Invalid Pais de Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"El pais con este Id no fue encontrado\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Aeropuerto de Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Pais de Invalid Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Get Aeropuerto non-associated de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto  con este id no esta asociada a esta aerolinea\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/{{aeropuertoId2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"{{aeropuertoId2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Pais non-associated de Cultura Gastronomica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/{{paisId2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"{{paisId2}}"
+							]
+						}
+					},
+					"status": "Precondition Failed",
+					"code": 412,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 412,\r\n   \"message\": \"El pais con este Id no esta asociado a esta Cultura gastrnómica\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{aeropuertoId2}}\"\r\n    },\r\n    {\r\n        \"id\": \"{{aeropuertoId3}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Paises de Cultura Gastronómica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{pais_id_2}}\"\r\n    },\r\n    {\r\n        \"id\": \"{{pais_id_3}}\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\r\n    \"nombre\": \"Cultura oriental\",\r\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\r\n    \"paises\": [\r\n        {\r\n            \"nombre\": \"Japon\"\r\n        },\r\n        {\r\n            \"nombre\": \"china\"\r\n        },\r\n        {\r\n            \"nombre\": \"Korea del sur\"\r\n        },\r\n        {\r\n            \"nombre\": \"Tailandia\"\r\n        }\r\n    ],\r\n    \"recetas\": [\r\n        {\r\n            \"nombre\": \"Sushi\",\r\n            \"descripcion\": \"El sushi es un plato japonés que consiste en arroz avinagrado acompañado de pescado crudo, mariscos, verduras o huevos, a menudo envuelto en alga nori.\",\r\n            \"proceso\": \"Primero se cocina arroz con vinagre, azúcar y sal. Luego, se coloca el arroz sobre una lámina de alga nori, se añaden ingredientes como pescado, mariscos o vegetales, y se enrolla. Finalmente, se corta el rollo en piezas pequeñas y se sirve con salsa de soya, jengibre y wasabi.\",\r\n            \"foto\": \"https://www.unileverfoodsolutions.com.mx/dam/global-ufs/mcos/NOLA/calcmenu/recipes/MX-recipes/general/sushi-empanizado/main-header.jpg\",\r\n            \"video\": \"https://www.youtube.com/watch?v=3_nDgGcwCCA\",\r\n            \"productos\": [\r\n                {\r\n                    \"nombre\": \"salmon\",\r\n                    \"descripcion\": \"Pescado de mar\",\r\n                    \"historia\": \"historia del salmo\",\r\n                    \"categoria\": \"Pescado\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"nombre\": \"Gyozas\",\r\n            \"descripcion\": \"Las gyozas son empanadillas japonesas rellenas de carne, verduras o mariscos, generalmente cocidas al vapor y luego doradas en la sartén.\",\r\n            \"proceso\": \"Se prepara un relleno de carne picada, vegetales y condimentos, que se coloca en discos de masa. Se doblan las masas, sellando los bordes, y se cocinan al vapor. Luego, se doran en una sartén hasta que queden crujientes por un lado, y se sirven con salsa de soya.\",\r\n            \"foto\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkQwxZ6tEayjXtnhNHcN3jZWZeO-ACAP6fQ&s\",\r\n            \"video\": \"https://www.youtube.com/watch?v=OKapgEoPGIM\",\r\n            \"productos\": [\r\n                {\r\n                    \"nombre\": \"salmon\",\r\n                    \"descripcion\": \"Pescado de mar\",\r\n                    \"historia\": \"historia del salmo\",\r\n                    \"categoria\": \"Pescado\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"restaurantes\": [\r\n        {\r\n            \"nombre\": \"El Japones\",\r\n            \"ciudad\": \"Tokyo\",\r\n            \"pais\": \"japon\",\r\n            \"estrellasMichelin\": [\r\n                {\r\n                    \"numeroEstrellas\": 4,\r\n                    \"fechaConsecusion\": \"12/10/2023\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"nombre\": \"Sexy seoul\",\r\n            \"ciudad\": \"Seoul\",\r\n            \"pais\": \"Korea del sur\",\r\n            \"estrellasMichelin\": [\r\n                {\r\n                    \"numeroEstrellas\": 4,\r\n                    \"fechaConsecusion\": \"12/10/2023\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Invalid Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto con este id no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    },\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Invalid Paises de Cultura Gastronómica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    },\r\n    {\r\n        \"id\": \"00000000-0000-0000-0000-000000000000\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El pais o los paises con estos Ids no fueron encontrados\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Aeropuerto de Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"id\": \"{{aeropuertoId2}}\"\r\n    },\r\n    {\r\n        \"id\": \"{{aeropuertoId3}}\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000/airports",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000",
+						"airports"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update Paises de Invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": \"{{pais_id_2}}\"\r\n    },\r\n    {\r\n        \"id\": \"{{pais_id_3}}\"\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000/pais",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000",
+								"pais"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/{{aeropuertoId2}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"{{aeropuertoId2}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Pais de Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 204,\r\n    \"message\": \"El Pais con este Id fue eliminada de la cultura gastronómica\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Aeropuerto de Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Pais de Invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000/pais/{{paisId}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000",
+								"pais",
+								"{{paisId}}"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Invalid Aeropuerto de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto con este id no fue encontrado\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Invalid Pais de Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El pais con este Id no fue encontrado\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Aeropuerto non-associated de Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 412\", function () {\r",
+							"   pm.response.to.have.status(412);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aeropuerto  con este id no esta asociada a esta aerolinea\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}/airports/{{aeropuertoId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}",
+						"airports",
+						"{{aeropuertoId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Pais non-associated de Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/{{culturaGastronomicaId}}/pais/{{paisId2}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"{{culturaGastronomicaId}}",
+								"pais",
+								"{{paisId2}}"
+							]
+						}
+					},
+					"code": 4012,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"El pais con este Id no esta asociado a esta cultura gastronómica\"\r\n}"
+				}
+			]
+		}
+	]
+}

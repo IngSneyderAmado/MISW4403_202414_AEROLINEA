@@ -1,0 +1,698 @@
+{
+	"info": {
+		"_postman_id": "799e2e46-9e86-4732-afa5-b1b18adf0064",
+		"name": "Aerolinea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1430972",
+		"_collection_link": "https://www.postman.com/misw-uniandes/workspace/misw4403-202414-aerolinea/collection/1430972-799e2e46-9e86-4732-afa5-b1b18adf0064?action=share&source=collection_link&creator=1430972"
+	},
+	"item": [
+		{
+			"name": "api/v",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var data = pm.response.json()\r",
+							"pm.globals.set(\"aerolineaId\", data.id);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"   pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n  \"nombre\": \"pepito perez\",\r\n  \"descripcion\": \"hola mundo\",\r\n  \"fechaFundacion\": \"2015-02-25\",\r\n  \"paginaWeb\": \"www.webweb.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Cultura Gastronómica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cultura oriental\",\r\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\r\n    \"paises\": [\r\n        \"2ae92361-b134-4f35-bdc1-353573a2a2bc\",\r\n        \"bbec19b1-b712-4c4e-8c82-bab7a05c814b\"\r\n    ],\r\n    \"recetas\": [\r\n        \"d1432902-d6fc-4a2d-9a45-db4c51bc60ce\",\r\n        \"2694b0d0-2500-42fd-afab-5ccba9bafa13\"\r\n    ],\r\n    \"restaurantes\": [\r\n        \"41ae0b4c-9d9a-489b-8700-8fbb0348e0df\",\r\n        \"5d2bfe54-707d-4147-8a51-5d36380f2685\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\n    \"nombre\": \"Cultura oriental\",\n    \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\n    \"paises\": [\n        {\n            \"nombre\": \"Japon\"\n        },\n        {\n            \"nombre\": \"china\"\n        }\n    ],\n    \"recetas\": [\n        {\n            \"nombre\": \"Sushi\",\n            \"descripcion\": \"El sushi es un plato japonés que consiste en arroz avinagrado acompañado de pescado crudo, mariscos, verduras o huevos, a menudo envuelto en alga nori.\",\n            \"proceso\": \"Primero se cocina arroz con vinagre, azúcar y sal. Luego, se coloca el arroz sobre una lámina de alga nori, se añaden ingredientes como pescado, mariscos o vegetales, y se enrolla. Finalmente, se corta el rollo en piezas pequeñas y se sirve con salsa de soya, jengibre y wasabi.\",\n            \"foto\": \"https://www.unileverfoodsolutions.com.mx/dam/global-ufs/mcos/NOLA/calcmenu/recipes/MX-recipes/general/sushi-empanizado/main-header.jpg\",\n            \"video\": \"https://www.youtube.com/watch?v=3_nDgGcwCCA\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Gyozas\",\n            \"descripcion\": \"Las gyozas son empanadillas japonesas rellenas de carne, verduras o mariscos, generalmente cocidas al vapor y luego doradas en la sartén.\",\n            \"proceso\": \"Se prepara un relleno de carne picada, vegetales y condimentos, que se coloca en discos de masa. Se doblan las masas, sellando los bordes, y se cocinan al vapor. Luego, se doran en una sartén hasta que queden crujientes por un lado, y se sirven con salsa de soya.\",\n            \"foto\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkQwxZ6tEayjXtnhNHcN3jZWZeO-ACAP6fQ&s\",\n            \"video\": \"https://www.youtube.com/watch?v=OKapgEoPGIM\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        }\n    ],\n    \"restaurantes\": [\n        {\n            \"nombre\": \"El Japones\",\n            \"ciudad\": \"Tokyo\",\n            \"pais\": \"japon\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Sexy seoul\",\n            \"ciudad\": \"Seoul\",\n            \"pais\": \"Korea del sur\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"   pm.response.to.have.status(400);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.contains(\"descripcion should not be empty\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n  \"nombre\": \"pepito perez\",\r\n  \"descripcion\": \"\",\r\n  \"fechaFundacion\": \"2015-02-25\",\r\n  \"paginaWeb\": \"www.webweb.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cultura oriental\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n   \"statusCode\": 400,\n   \"message\": \"El cuerpo de la petición esta incompleto\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test('Number of culturas > ' + 0, function () {\r",
+							"   var data = pm.response.json()\r",
+							"   pm.expect(data.length).to.greaterThan(0)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all Culturas Gastronómicas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\n        \"nombre\": \"Cultura oriental\",\n        \"descripcion\": \"La cultura gastronómica oriental se distingue por su diversidad, equilibrio de sabores, uso de ingredientes frescos como arroz y soja, y una estética cuidada en la presentación de los platos\",\n        \"paises\": [\n            {\n                \"nombre\": \"Japon\"\n            },\n            {\n                \"nombre\": \"china\"\n            }\n        ],\n        \"recetas\": [\n            {\n                \"nombre\": \"Sushi\",\n                \"descripcion\": \"El sushi es un plato japonés que consiste en arroz avinagrado acompañado de pescado crudo, mariscos, verduras o huevos, a menudo envuelto en alga nori.\",\n                \"proceso\": \"Primero se cocina arroz con vinagre, azúcar y sal. Luego, se coloca el arroz sobre una lámina de alga nori, se añaden ingredientes como pescado, mariscos o vegetales, y se enrolla. Finalmente, se corta el rollo en piezas pequeñas y se sirve con salsa de soya, jengibre y wasabi.\",\n                \"foto\": \"https://www.unileverfoodsolutions.com.mx/dam/global-ufs/mcos/NOLA/calcmenu/recipes/MX-recipes/general/sushi-empanizado/main-header.jpg\",\n                \"video\": \"https://www.youtube.com/watch?v=3_nDgGcwCCA\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"salmon\",\n                        \"descripcion\": \"Pescado de mar\",\n                        \"historia\": \"historia del salmo\",\n                        \"categoria\": \"Pescado\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"Gyozas\",\n                \"descripcion\": \"Las gyozas son empanadillas japonesas rellenas de carne, verduras o mariscos, generalmente cocidas al vapor y luego doradas en la sartén.\",\n                \"proceso\": \"Se prepara un relleno de carne picada, vegetales y condimentos, que se coloca en discos de masa. Se doblan las masas, sellando los bordes, y se cocinan al vapor. Luego, se doran en una sartén hasta que queden crujientes por un lado, y se sirven con salsa de soya.\",\n                \"foto\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkQwxZ6tEayjXtnhNHcN3jZWZeO-ACAP6fQ&s\",\n                \"video\": \"https://www.youtube.com/watch?v=OKapgEoPGIM\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"salmon\",\n                        \"descripcion\": \"Pescado de mar\",\n                        \"historia\": \"historia del salmo\",\n                        \"categoria\": \"Pescado\"\n                    }\n                ]\n            }\n        ],\n        \"restaurantes\": [\n            {\n                \"nombre\": \"El Japones\",\n                \"ciudad\": \"Tokyo\",\n                \"pais\": \"japon\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 4,\n                        \"fechaConsecusion\": \"12/10/2023\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"Sexy seoul\",\n                \"ciudad\": \"Seoul\",\n                \"pais\": \"Korea del sur\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 4,\n                        \"fechaConsecusion\": \"12/10/2023\"\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"id\": \"e78123b5-df5f-4c8b-8b16-ae35ed7baf7e\",\n        \"nombre\": \"Cultura mediterránea\",\n        \"descripcion\": \"La cultura gastronómica mediterránea es famosa por su enfoque en ingredientes frescos, como el aceite de oliva, vegetales, pescado y cereales, con una fuerte presencia de sabores naturales y saludables.\",\n        \"paises\": [\n            {\n                \"nombre\": \"Italia\"\n            },\n            {\n                \"nombre\": \"España\"\n            },\n            {\n                \"nombre\": \"Grecia\"\n            }\n        ],\n        \"recetas\": [\n            {\n                \"nombre\": \"Paella\",\n                \"descripcion\": \"La paella es un plato tradicional español que combina arroz con mariscos, pollo, conejo y verduras, sazonado con azafrán y otras especias.\",\n                \"proceso\": \"Se sofríen los ingredientes en una paellera, se añade el arroz y el caldo con azafrán, y se cocina a fuego lento hasta que el arroz absorba todo el líquido. Se deja reposar antes de servir.\",\n                \"foto\": \"https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/paella.jpg\",\n                \"video\": \"https://www.youtube.com/watch?v=g_igAaTzIYg\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"Azafrán\",\n                        \"descripcion\": \"Especia que aporta un color y sabor distintivo.\",\n                        \"historia\": \"El azafrán es conocido como la especia más cara del mundo y ha sido utilizado durante siglos en la cocina mediterránea.\",\n                        \"categoria\": \"Especias\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"Moussaka\",\n                \"descripcion\": \"La moussaka es un plato griego que consiste en capas de berenjena, carne picada y una cobertura de salsa bechamel, horneado hasta obtener una textura cremosa.\",\n                \"proceso\": \"Se fríen las berenjenas, se cocina la carne con tomate y especias, y se monta el plato con capas de ambos. Se cubre con bechamel y se hornea hasta dorar.\",\n                \"foto\": \"https://www.simplyrecipes.com/thmb/fkVcW8DPQQOOSv4cbyXIsKJKD4Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Moussaka-LEAD-2-d54cd698f2c04e4295b289e3b0d24125.jpg\",\n                \"video\": \"https://www.youtube.com/watch?v=5HtZNI1p8_Q\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"Berenjena\",\n                        \"descripcion\": \"Vegetal utilizado en la base del plato.\",\n                        \"historia\": \"La berenjena es un vegetal muy apreciado en la cocina mediterránea por su versatilidad.\",\n                        \"categoria\": \"Vegetales\"\n                    }\n                ]\n            }\n        ],\n        \"restaurantes\": [\n            {\n                \"nombre\": \"La Paella Real\",\n                \"ciudad\": \"Valencia\",\n                \"pais\": \"España\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 3,\n                        \"fechaConsecusion\": \"15/05/2023\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"Athenian Delights\",\n                \"ciudad\": \"Atenas\",\n                \"pais\": \"Grecia\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 2,\n                        \"fechaConsecusion\": \"02/04/2023\"\n                    }\n                ]\n            }\n        ]\n    },\n    {\n        \"id\": \"9ac7c688-e6d1-488d-9f3e-d3dfb741a4ed\",\n        \"nombre\": \"Cultura latinoamericana\",\n        \"descripcion\": \"La cultura gastronómica latinoamericana se caracteriza por su mezcla de influencias indígenas, africanas y europeas, con un énfasis en ingredientes autóctonos y sabores intensos.\",\n        \"paises\": [\n            {\n                \"nombre\": \"México\"\n            },\n            {\n                \"nombre\": \"Perú\"\n            },\n            {\n                \"nombre\": \"Argentina\"\n            }\n        ],\n        \"recetas\": [\n            {\n                \"nombre\": \"Tacos al Pastor\",\n                \"descripcion\": \"Los tacos al pastor son una especialidad mexicana que consiste en carne de cerdo marinada en achiote y cocinada en un trompo vertical, servida en tortillas con piña, cilantro y cebolla.\",\n                \"proceso\": \"La carne se marina durante varias horas, se cocina en un trompo giratorio y se corta en finas rebanadas. Se sirven en tortillas calientes con piña, cilantro y cebolla.\",\n                \"foto\": \"https://www.seriouseats.com/thmb/2PGxdlZGGPBLBNMsHMO3bH6CsJc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230421-Tacos-al-Pastor-Red-Chile-Marinade-Joshua-Bousel-11-d3404d67059941a8887d42b4d59d1a11.jpg\",\n                \"video\": \"https://www.youtube.com/watch?v=EwZVC6E_V_M\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"Achiote\",\n                        \"descripcion\": \"Especia utilizada en la marinada para dar color y sabor.\",\n                        \"historia\": \"El achiote es un ingrediente clave en muchas recetas mexicanas, conocido por su color rojo intenso.\",\n                        \"categoria\": \"Especias\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"Ceviche\",\n                \"descripcion\": \"El ceviche es un plato tradicional peruano que consiste en pescado crudo marinado en jugo de limón, mezclado con cebolla, cilantro, ají y otras especias.\",\n                \"proceso\": \"El pescado se corta en cubos y se marina en jugo de limón hasta que esté parcialmente cocido. Luego se mezcla con cebolla, cilantro, ají y se sirve acompañado de camote, choclo y lechuga.\",\n                \"foto\": \"https://www.seriouseats.com/thmb/vqYXVeUpmtnSg69FxjMZ1xrpX64=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20230317-Ceviche-Joshua-Bousel-01-1-39f7484ef2cb4a6fb9081e20acdb23e8.jpg\",\n                \"video\": \"https://www.youtube.com/watch?v=XJICLhDNRHE\",\n                \"productos\": [\n                    {\n                        \"nombre\": \"Ají Amarillo\",\n                        \"descripcion\": \"Pimiento picante típico de Perú, aporta un sabor y color característicos al ceviche.\",\n                        \"historia\": \"El ají amarillo es un ingrediente esencial en la cocina peruana, utilizado en muchos platos tradicionales.\",\n                        \"categoria\": \"Especias\"\n                    }\n                ]\n            }\n        ],\n        \"restaurantes\": [\n            {\n                \"nombre\": \"El Pastor\",\n                \"ciudad\": \"Ciudad de México\",\n                \"pais\": \"México\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 3,\n                        \"fechaConsecusion\": \"20/06/2023\"\n                    }\n                ]\n            },\n            {\n                \"nombre\": \"La Mar\",\n                \"ciudad\": \"Lima\",\n                \"pais\": \"Perú\",\n                \"estrellasMichelin\": [\n                    {\n                        \"numeroEstrellas\": 2,\n                        \"fechaConsecusion\": \"05/11/2023\"\n                    }\n                ]\n            }\n        ]\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get one Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get one Cultura Gastronómica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"e78123b5-df5f-4c8b-8b16-ae35ed7baf7e\",\n    \"nombre\": \"Cultura mediterránea\",\n    \"descripcion\": \"La cultura gastronómica mediterránea es famosa por su enfoque en ingredientes frescos, como el aceite de oliva, vegetales, pescado y cereales, con una fuerte presencia de sabores naturales y saludables.\",\n    \"paises\": [\n        {\n            \"nombre\": \"Italia\"\n        },\n        {\n            \"nombre\": \"España\"\n        },\n        {\n            \"nombre\": \"Grecia\"\n        }\n    ],\n    \"recetas\": [\n        {\n            \"nombre\": \"Paella\",\n            \"descripcion\": \"La paella es un plato tradicional español que combina arroz con mariscos, pollo, conejo y verduras, sazonado con azafrán y otras especias.\",\n            \"proceso\": \"Se sofríen los ingredientes en una paellera, se añade el arroz y el caldo con azafrán, y se cocina a fuego lento hasta que el arroz absorba todo el líquido. Se deja reposar antes de servir.\",\n            \"foto\": \"https://www.bbcgoodfood.com/sites/default/files/recipe-collections/collection-image/2013/05/paella.jpg\",\n            \"video\": \"https://www.youtube.com/watch?v=g_igAaTzIYg\",\n            \"productos\": [\n                {\n                    \"nombre\": \"Azafrán\",\n                    \"descripcion\": \"Especia que aporta un color y sabor distintivo.\",\n                    \"historia\": \"El azafrán es conocido como la especia más cara del mundo y ha sido utilizado durante siglos en la cocina mediterránea.\",\n                    \"categoria\": \"Especias\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Moussaka\",\n            \"descripcion\": \"La moussaka es un plato griego que consiste en capas de berenjena, carne picada y una cobertura de salsa bechamel, horneado hasta obtener una textura cremosa.\",\n            \"proceso\": \"Se fríen las berenjenas, se cocina la carne con tomate y especias, y se monta el plato con capas de ambos. Se cubre con bechamel y se hornea hasta dorar.\",\n            \"foto\": \"https://www.simplyrecipes.com/thmb/fkVcW8DPQQOOSv4cbyXIsKJKD4Y=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Simply-Recipes-Moussaka-LEAD-2-d54cd698f2c04e4295b289e3b0d24125.jpg\",\n            \"video\": \"https://www.youtube.com/watch?v=5HtZNI1p8_Q\",\n            \"productos\": [\n                {\n                    \"nombre\": \"Berenjena\",\n                    \"descripcion\": \"Vegetal utilizado en la base del plato.\",\n                    \"historia\": \"La berenjena es un vegetal muy apreciado en la cocina mediterránea por su versatilidad.\",\n                    \"categoria\": \"Vegetales\"\n                }\n            ]\n        }\n    ],\n    \"restaurantes\": [\n        {\n            \"nombre\": \"La Paella Real\",\n            \"ciudad\": \"Valencia\",\n            \"pais\": \"España\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 3,\n                    \"fechaConsecusion\": \"15/05/2023\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Athenian Delights\",\n            \"ciudad\": \"Atenas\",\n            \"pais\": \"Grecia\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 2,\n                    \"fechaConsecusion\": \"02/04/2023\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Get invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 404,\r\n   \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Update one Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"   pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Aerolina Simpre Viva\",\r\n    \"descripcion\": \"La cultura gastronómica super oriental se distingue por su enfoque en la armonía de sabores, el uso de ingredientes frescos como arroz, pescado y soja, y técnicas culinarias que resaltan la estética y la simplicidad en los platos.\",\r\n\t\t\"fechaFundacion\": \"2017-02-25\",\r\n  \"paginaWeb\": \"www.webweb2.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update one Cultura Gastronómica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cultura Super Oriental\",\r\n    \"descripcion\": \"La cultura gastronómica super oriental se distingue por su enfoque en la armonía de sabores, el uso de ingredientes frescos como arroz, pescado y soja, y técnicas culinarias que resaltan la estética y la simplicidad en los platos.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"52170e5f-e426-4ca2-bc84-6538e333b15b\",\n    \"nombre\": \"Cultura Super Oriental\",\n    \"descripcion\": \"La cultura gastronómica super oriental se distingue por su enfoque en la armonía de sabores, el uso de ingredientes frescos como arroz, pescado y soja, y técnicas culinarias que resaltan la estética y la simplicidad en los platos.\",\n    \"paises\": [\n        {\n            \"nombre\": \"Japon\"\n        },\n        {\n            \"nombre\": \"china\"\n        }\n    ],\n    \"recetas\": [\n        {\n            \"nombre\": \"Sushi\",\n            \"descripcion\": \"El sushi es un plato japonés que consiste en arroz avinagrado acompañado de pescado crudo, mariscos, verduras o huevos, a menudo envuelto en alga nori.\",\n            \"proceso\": \"Primero se cocina arroz con vinagre, azúcar y sal. Luego, se coloca el arroz sobre una lámina de alga nori, se añaden ingredientes como pescado, mariscos o vegetales, y se enrolla. Finalmente, se corta el rollo en piezas pequeñas y se sirve con salsa de soya, jengibre y wasabi.\",\n            \"foto\": \"https://www.unileverfoodsolutions.com.mx/dam/global-ufs/mcos/NOLA/calcmenu/recipes/MX-recipes/general/sushi-empanizado/main-header.jpg\",\n            \"video\": \"https://www.youtube.com/watch?v=3_nDgGcwCCA\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Gyozas\",\n            \"descripcion\": \"Las gyozas son empanadillas japonesas rellenas de carne, verduras o mariscos, generalmente cocidas al vapor y luego doradas en la sartén.\",\n            \"proceso\": \"Se prepara un relleno de carne picada, vegetales y condimentos, que se coloca en discos de masa. Se doblan las masas, sellando los bordes, y se cocinan al vapor. Luego, se doran en una sartén hasta que queden crujientes por un lado, y se sirven con salsa de soya.\",\n            \"foto\": \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkkQwxZ6tEayjXtnhNHcN3jZWZeO-ACAP6fQ&s\",\n            \"video\": \"https://www.youtube.com/watch?v=OKapgEoPGIM\",\n            \"productos\": [\n                {\n                    \"nombre\": \"salmon\",\n                    \"descripcion\": \"Pescado de mar\",\n                    \"historia\": \"historia del salmo\",\n                    \"categoria\": \"Pescado\"\n                }\n            ]\n        }\n    ],\n    \"restaurantes\": [\n        {\n            \"nombre\": \"El Japones\",\n            \"ciudad\": \"Tokyo\",\n            \"pais\": \"japon\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        },\n        {\n            \"nombre\": \"Sexy seoul\",\n            \"ciudad\": \"Seoul\",\n            \"pais\": \"Korea del sur\",\n            \"estrellasMichelin\": [\n                {\n                    \"numeroEstrellas\": 4,\n                    \"fechaConsecusion\": \"12/10/2023\"\n                }\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Update invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cultura Super Oriental\",\r\n    \"descripcion\": \"La cultura gastronómica super oriental se distingue por su enfoque en la armonía de sabores, el uso de ingredientes frescos como arroz, pescado y soja, y técnicas culinarias que resaltan la estética y la simplicidad en los platos.\",\r\n\t\t\"fechaFundacion\": \"2017-02-25\",\r\n  \"paginaWeb\": \"www.webweb2.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Update invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Cultura Super Oriental\",\r\n    \"descripcion\": \"La cultura gastronómica super oriental se distingue por su enfoque en la armonía de sabores, el uso de ingredientes frescos como arroz, pescado y soja, y técnicas culinarias que resaltan la estética y la simplicidad en los platos.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"statusCode\": 404,\n    \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete one Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 204\", function () {\r",
+							"   pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/{{aerolineaId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"{{aerolineaId}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete one Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n   \"statusCode\": 204,\r\n   \"message\": \"La cultura gastronómica con este Id fue eliminada\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Invalid Aerolinea",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"   pm.response.to.have.status(404);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Get expected error message\", function () {\r",
+							"   var data = pm.response.json();\r",
+							"   pm.expect(data.message).to.eql(\"El aerolinea con este id no fue encontrada\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/airlines/00000000-0000-0000-0000-000000000000",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"airlines",
+						"00000000-0000-0000-0000-000000000000"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete Invalid Cultura Gastronómica",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/culturaGastronomica/00000000-0000-0000-0000-000000000000",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"culturaGastronomica",
+								"00000000-0000-0000-0000-000000000000"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\r\n    \"statusCode\": 404,\r\n    \"message\": \"La cultura gastronómica con este Id no fue encontrada\"\r\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "culturaGastronomicaId",
+			"value": ""
+		}
+	]
+}
