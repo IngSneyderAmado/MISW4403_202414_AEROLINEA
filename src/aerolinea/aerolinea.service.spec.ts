@@ -62,7 +62,7 @@ describe('AerolineaService', () => {
     const aerolinea: AerolineaEntity = {
       nombre: faker.company.name(),
       descripcion: faker.lorem.paragraph(1),
-      fechaFundacion: faker.date.future().toISOString().split('T')[0],
+      fechaFundacion: faker.date.past().toISOString().split('T')[0],
       paginaWeb: faker.internet.url(),
       aeropuertos: []
     } as AerolineaEntity;
@@ -74,10 +74,22 @@ describe('AerolineaService', () => {
     expect(storedAerolinea.descripcion).toEqual(newAerolinea.descripcion);
   });
 
+  it('create should return fecha fundacion invalida aerolinea', async () => {
+    const aerolinea: AerolineaEntity = {
+      nombre: faker.company.name(),
+      descripcion: faker.lorem.paragraph(1),
+      fechaFundacion: faker.date.future().toISOString().split('T')[0],
+      paginaWeb: faker.internet.url(),
+      aeropuertos: []
+    } as AerolineaEntity;
+    await expect(() => service.create(aerolinea)).rejects.toHaveProperty('message', MESSAGES.FEHCAINVALIDA);
+  });
+
   it('update should modify a aerolinea', async () => {
     const aerolinea: AerolineaEntity = aerolineaList[0];
     aerolinea.nombre = 'New name';
     aerolinea.descripcion = 'New description';
+    aerolinea.fechaFundacion = faker.date.past().toISOString().split('T')[0];
     const updatedAerolinea: AerolineaEntity = await service.update(aerolinea.id, aerolinea);
     expect(updatedAerolinea).not.toBeNull();
     const storedAerolinea: AerolineaEntity = await repository.findOne({where: {id: aerolinea.id}});
@@ -86,6 +98,13 @@ describe('AerolineaService', () => {
     expect(storedAerolinea.descripcion).toEqual(aerolinea.descripcion);
   });
 
+  it('update should throw an exception for an invalid fecha fundacion aerolinea', async () => {
+    const aerolinea: AerolineaEntity = aerolineaList[0];
+    aerolinea.nombre = 'New name';
+    aerolinea.descripcion = 'New description';
+    aerolinea.fechaFundacion = faker.date.future().toISOString().split('T')[0];
+    await expect(() => service.update(aerolinea.id, aerolinea)).rejects.toHaveProperty('message', MESSAGES.FEHCAINVALIDA);
+  });
   it('update should throw an exception for an invalid aerolinea', async () => {
     let aerolinea: AerolineaEntity = aerolineaList[0];
     aerolinea = {...aerolinea, nombre: 'New name', descripcion: 'New description'};

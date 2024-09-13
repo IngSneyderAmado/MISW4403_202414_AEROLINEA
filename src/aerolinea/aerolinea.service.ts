@@ -23,12 +23,18 @@ export class AerolineaService {
   }
 
   async create(aerolinea: AerolineaEntity): Promise<AerolineaEntity> {
+    const fechaActual = new Date();
+    const fechaFundacion = new Date(aerolinea.fechaFundacion);
+    if (fechaFundacion > fechaActual) throw new BusinessLogicException(MESSAGES.FEHCAINVALIDA, BusinessError.NOT_FOUND);
     return await this.aerolineaRepository.save(aerolinea);
   }
 
   async update(id: string, aerolinea: AerolineaEntity): Promise<AerolineaEntity> {
     const persistAerolinea: AerolineaEntity = await this.aerolineaRepository.findOne({where: {id}});
     if (!persistAerolinea) throw new BusinessLogicException(MESSAGES.AEROLINEANOTFOUND, BusinessError.NOT_FOUND);
+    const fechaActual = new Date();
+    const fechaFundacion = new Date(aerolinea.fechaFundacion);
+    if (fechaFundacion > fechaActual) throw new BusinessLogicException(MESSAGES.FEHCAINVALIDA, BusinessError.NOT_FOUND);
     return await this.aerolineaRepository.save({...persistAerolinea, ...aerolinea});
   }
 

@@ -1,5 +1,5 @@
 /* Modules imports */
-import {AerolineaAeropuertoModule} from 'src/aerolinea-aeropuerto/aerolinea-aeropuerto.module';
+import {AerolineaAeropuertoModule} from '../../aerolinea-aeropuerto/aerolinea-aeropuerto.module';
 import {AerolineaModule} from '../../aerolinea/aerolinea.module';
 import {AeropuertoModule} from '../../aeropuerto/aeropuerto.module';
 
