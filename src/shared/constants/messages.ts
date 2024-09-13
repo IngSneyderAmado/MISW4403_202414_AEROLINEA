@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /** Messages of bussines errors */
 export enum MESSAGES {
   AEROLINEANOTFOUND = 'El aerolinea con este id no fue encontrada',

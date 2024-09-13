@@ -1,10 +1,8 @@
-/* eslint-disable prettier/prettier */
-import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
+import {AeropuertoEntity} from '../aeropuerto/aeropuerto.entity';
 import {Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class AerolineaEntity {
-
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

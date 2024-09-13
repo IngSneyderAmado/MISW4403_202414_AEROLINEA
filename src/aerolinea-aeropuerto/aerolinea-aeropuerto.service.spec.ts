@@ -1,12 +1,11 @@
-/* eslint-disable prettier/prettier */
-import { Test, TestingModule } from '@nestjs/testing';
-import { AerolineaAeropuertoService } from './aerolinea-aeropuerto.service';
-import { AerolineaEntity } from '../aerolinea/aerolinea.entity';
-import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
+import {Test, TestingModule} from '@nestjs/testing';
+import {AerolineaAeropuertoService} from './aerolinea-aeropuerto.service';
+import {AerolineaEntity} from '../aerolinea/aerolinea.entity';
+import {AeropuertoEntity} from '../aeropuerto/aeropuerto.entity';
 import {faker} from '@faker-js/faker';
-import { Repository } from 'typeorm';
-import { MESSAGES, TypeOrmTestingConfig } from '../shared';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import {Repository} from 'typeorm';
+import {MESSAGES, TypeOrmTestingConfig} from '../shared';
+import {getRepositoryToken} from '@nestjs/typeorm';
 
 describe('AerolineaAeropuertoService', () => {
   let service: AerolineaAeropuertoService;
@@ -25,7 +24,7 @@ describe('AerolineaAeropuertoService', () => {
         codigo: faker.string.numeric(3),
         pais: faker.location.country(),
         ciudad: faker.location.city(),
-        aerolineas: [],
+        aerolineas: []
       } as AeropuertoEntity);
       aeropuertosList.push(aeropuerto);
     }
@@ -34,14 +33,14 @@ describe('AerolineaAeropuertoService', () => {
       descripcion: faker.lorem.paragraph(1),
       fechaFundacion: faker.date.future().toISOString().split('T')[0],
       paginaWeb: faker.internet.url(),
-      aeropuertos: aeropuertosList,
+      aeropuertos: aeropuertosList
     } as AerolineaEntity);
   };
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig()],
-      providers: [AerolineaAeropuertoService],
+      providers: [AerolineaAeropuertoService]
     }).compile();
 
     service = module.get<AerolineaAeropuertoService>(AerolineaAeropuertoService);
@@ -60,13 +59,14 @@ describe('AerolineaAeropuertoService', () => {
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
       ciudad: faker.location.city(),
-      aerolineas: []} as AeropuertoEntity);
+      aerolineas: []
+    } as AeropuertoEntity);
     const newAerolinea: AerolineaEntity = await aerolineaRepository.save({
       nombre: faker.company.name(),
-        descripcion: faker.lorem.paragraph(1),
-        fechaFundacion: faker.date.future().toISOString().split('T')[0],
-        paginaWeb: faker.internet.url(),
-        aeropuertos: aeropuertosList,
+      descripcion: faker.lorem.paragraph(1),
+      fechaFundacion: faker.date.future().toISOString().split('T')[0],
+      paginaWeb: faker.internet.url(),
+      aeropuertos: aeropuertosList
     } as AerolineaEntity);
     const result: AerolineaEntity = await service.addAeropuertoToAerolinea(newAerolinea.id, newAeropuerto.id);
     expect(result.aeropuertos.length).toBe(6);
@@ -80,9 +80,12 @@ describe('AerolineaAeropuertoService', () => {
       descripcion: faker.lorem.paragraph(1),
       fechaFundacion: faker.date.future().toISOString().split('T')[0],
       paginaWeb: faker.internet.url(),
-      aeropuertos: [],
+      aeropuertos: []
     } as AerolineaEntity);
-    await expect(() => service.addAeropuertoToAerolinea(newAerolinea.id, '0')).rejects.toHaveProperty('message', MESSAGES.AEROPUERTONOTFOUND);
+    await expect(() => service.addAeropuertoToAerolinea(newAerolinea.id, '0')).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROPUERTONOTFOUND
+    );
   });
 
   it('addAeropuertoAerolinea should throw an exception for an invalid Aerolinea', async () => {
@@ -91,8 +94,12 @@ describe('AerolineaAeropuertoService', () => {
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
       ciudad: faker.location.city(),
-      aerolineas: []});
-    await expect(() => service.addAeropuertoToAerolinea('0', newAeropuerto.id)).rejects.toHaveProperty('message', MESSAGES.AEROLINEANOTFOUND);
+      aerolineas: []
+    });
+    await expect(() => service.addAeropuertoToAerolinea('0', newAeropuerto.id)).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROLINEANOTFOUND
+    );
   });
 
   it('findAeropuertoByAerolineaIdAeropuertoId should return Aeropuerto by Aerolinea', async () => {
@@ -103,12 +110,18 @@ describe('AerolineaAeropuertoService', () => {
   });
 
   it('findAeropuertoByAerolineaIdAeropuertoId should throw an exception for an invalid Aeropuerto', async () => {
-    await expect(() => service.findAeropuertoFromAerolinea(aerolinea.id, '0')).rejects.toHaveProperty('message', MESSAGES.AEROPUERTONOTFOUND);
+    await expect(() => service.findAeropuertoFromAerolinea(aerolinea.id, '0')).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROPUERTONOTFOUND
+    );
   });
 
   it('findAeropuertoByAerolineaIdAeropuertoId should throw an exception for an invalid Aerolinea', async () => {
     const aeropuerto: AeropuertoEntity = aeropuertosList[0];
-    await expect(() => service.findAeropuertoFromAerolinea('0', aeropuerto.id)).rejects.toHaveProperty('message', MESSAGES.AEROLINEANOTFOUND);
+    await expect(() => service.findAeropuertoFromAerolinea('0', aeropuerto.id)).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROLINEANOTFOUND
+    );
   });
 
   it('findAeropuertoByAerolineaIdAeropuertoId should throw an exception for an Aeropuerto not associated to the Aerolinea', async () => {
@@ -117,7 +130,8 @@ describe('AerolineaAeropuertoService', () => {
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
       ciudad: faker.location.city(),
-      aerolineas: []} as AeropuertoEntity);
+      aerolineas: []
+    } as AeropuertoEntity);
     await expect(() => service.findAeropuertoFromAerolinea(aerolinea.id, newAeropuerto.id)).rejects.toHaveProperty(
       'message',
       MESSAGES.AEROPUERTONOASSOCIATEDAEROLINEA
@@ -138,7 +152,8 @@ describe('AerolineaAeropuertoService', () => {
       nombre: faker.company.name(),
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
-      ciudad: faker.location.city(),} as AeropuertoEntity);
+      ciudad: faker.location.city()
+    } as AeropuertoEntity);
     const updatedAerolinea: AerolineaEntity = await service.updateAirportsFromAirline(aerolinea.id, [newAeropuerto]);
     expect(updatedAerolinea.aeropuertos.length).toBe(1);
     expect(updatedAerolinea.aeropuertos[0].nombre).toBe(newAeropuerto.nombre);
@@ -150,14 +165,21 @@ describe('AerolineaAeropuertoService', () => {
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
       ciudad: faker.location.city(),
-      aerolineas: []} as AeropuertoEntity);
-    await expect(() => service.updateAirportsFromAirline('0', [newAeropuerto])).rejects.toHaveProperty('message', MESSAGES.AEROLINEANOTFOUND);
+      aerolineas: []
+    } as AeropuertoEntity);
+    await expect(() => service.updateAirportsFromAirline('0', [newAeropuerto])).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROLINEANOTFOUND
+    );
   });
 
   it('associateAeropuertoesAerolinea should throw an exception for an invalid Aeropuerto', async () => {
     const newAeropuerto: AeropuertoEntity = aeropuertosList[0];
     newAeropuerto.id = '0';
-    await expect(() => service.updateAirportsFromAirline(aerolinea.id, [newAeropuerto])).rejects.toHaveProperty('message', MESSAGES.AEROPUERTONOTFOUND);
+    await expect(() => service.updateAirportsFromAirline(aerolinea.id, [newAeropuerto])).rejects.toHaveProperty(
+      'message',
+      MESSAGES.AEROPUERTONOTFOUND
+    );
   });
 
   it('deleteAeropuertoAerolinea should remove an Aeropuerto from a Aerolinea', async () => {
@@ -186,7 +208,8 @@ describe('AerolineaAeropuertoService', () => {
       codigo: faker.string.numeric(3),
       pais: faker.location.country(),
       ciudad: faker.location.city(),
-      aerolineas: []} as AeropuertoEntity);
+      aerolineas: []
+    } as AeropuertoEntity);
     await expect(() => service.deleteAirportFromAirline(aerolinea.id, newAeropuerto.id)).rejects.toHaveProperty(
       'message',
       MESSAGES.AEROPUERTONOASSOCIATEDAEROLINEA

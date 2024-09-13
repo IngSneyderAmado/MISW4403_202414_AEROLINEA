@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-import { Test, TestingModule } from '@nestjs/testing';
-import { AerolineaService } from './aerolinea.service';
+import {Test, TestingModule} from '@nestjs/testing';
+import {AerolineaService} from './aerolinea.service';
 import {faker} from '@faker-js/faker';
 import {Repository} from 'typeorm';
 import {TypeOrmTestingConfig, MESSAGES} from '../shared';
-import { AerolineaEntity } from './aerolinea.entity';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import {AerolineaEntity} from './aerolinea.entity';
+import {getRepositoryToken} from '@nestjs/typeorm';
 describe('AerolineaService', () => {
   let service: AerolineaService;
   let repository: Repository<AerolineaEntity>;
@@ -20,7 +19,7 @@ describe('AerolineaService', () => {
         descripcion: faker.lorem.paragraph(1),
         fechaFundacion: faker.date.future().toISOString().split('T')[0],
         paginaWeb: faker.internet.url(),
-        aeropuertos: [],
+        aeropuertos: []
       } as AerolineaEntity);
       aerolineaList.push(aerolinea);
     }
@@ -29,7 +28,7 @@ describe('AerolineaService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig()],
-      providers: [AerolineaService],
+      providers: [AerolineaService]
     }).compile();
 
     service = module.get<AerolineaService>(AerolineaService);
@@ -65,7 +64,7 @@ describe('AerolineaService', () => {
       descripcion: faker.lorem.paragraph(1),
       fechaFundacion: faker.date.future().toISOString().split('T')[0],
       paginaWeb: faker.internet.url(),
-      aeropuertos: [],
+      aeropuertos: []
     } as AerolineaEntity;
     const newAerolinea: AerolineaEntity = await service.create(aerolinea);
     expect(newAerolinea).not.toBeNull();

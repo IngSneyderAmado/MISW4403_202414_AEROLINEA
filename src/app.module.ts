@@ -1,13 +1,12 @@
-/* eslint-disable prettier/prettier */
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { ENTITIES, MODULES } from './shared';
-import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
-
+import {Module} from '@nestjs/common';
+import {AppController} from './app.controller';
+import {ENTITIES, MODULES} from './shared';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {ConfigModule} from '@nestjs/config';
 
 @Module({
-  imports: [ConfigModule.forRoot({envFilePath: '.env'}),
+  imports: [
+    ConfigModule.forRoot({envFilePath: '.env'}),
     ...MODULES,
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -20,7 +19,8 @@ import { ConfigModule } from '@nestjs/config';
       dropSchema: process.env.DROP_SCHEMA === undefined ? true : process.env.DROP_SCHEMA === 'true',
       synchronize: process.env.SYNCHRONIZE === undefined ? true : process.env.SYNCHRONIZE === 'true',
       keepConnectionAlive: true
-    }),],
+    })
+  ],
   controllers: [AppController]
 })
 export class AppModule {}

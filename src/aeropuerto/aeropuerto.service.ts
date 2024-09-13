@@ -1,14 +1,12 @@
-/* eslint-disable prettier/prettier */
 import {InjectRepository} from '@nestjs/typeorm';
 import {Repository} from 'typeorm';
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {BusinessError, BusinessLogicException, MESSAGES} from '../shared';
-import { AeropuertoEntity } from './aeropuerto.entity';
+import {AeropuertoEntity} from './aeropuerto.entity';
 
 @Injectable()
 export class AeropuertoService {
-
-    /** Service constructor */
+  /** Service constructor */
   constructor(
     @InjectRepository(AeropuertoEntity)
     private readonly aeropuertoRepository: Repository<AeropuertoEntity>

@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 /* Global imports */
 import {TypeOrmModule} from '@nestjs/typeorm';
 /* Entities imports */

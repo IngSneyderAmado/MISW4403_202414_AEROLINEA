@@ -1,11 +1,10 @@
-/* eslint-disable prettier/prettier */
-import { Test, TestingModule } from '@nestjs/testing';
-import { AeropuertoService } from './aeropuerto.service';
-import { AeropuertoEntity } from './aeropuerto.entity';
-import { Repository } from 'typeorm';
+import {Test, TestingModule} from '@nestjs/testing';
+import {AeropuertoService} from './aeropuerto.service';
+import {AeropuertoEntity} from './aeropuerto.entity';
+import {Repository} from 'typeorm';
 import {faker} from '@faker-js/faker';
-import { MESSAGES, TypeOrmTestingConfig } from '../shared';
-import { getRepositoryToken } from '@nestjs/typeorm';
+import {MESSAGES, TypeOrmTestingConfig} from '../shared';
+import {getRepositoryToken} from '@nestjs/typeorm';
 
 describe('AeropuertoService', () => {
   let service: AeropuertoService;
@@ -21,7 +20,7 @@ describe('AeropuertoService', () => {
         codigo: faker.string.numeric(3),
         pais: faker.location.country(),
         ciudad: faker.location.city(),
-        aerolineas: [],
+        aerolineas: []
       } as AeropuertoEntity);
       aeropuertoList.push(aeropueto);
     }
@@ -30,7 +29,7 @@ describe('AeropuertoService', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [...TypeOrmTestingConfig()],
-      providers: [AeropuertoService],
+      providers: [AeropuertoService]
     }).compile();
 
     service = module.get<AeropuertoService>(AeropuertoService);
@@ -63,10 +62,10 @@ describe('AeropuertoService', () => {
     const aeropuerto: AeropuertoEntity = {
       id: '',
       nombre: faker.company.name(),
-        codigo: faker.string.numeric(3),
-        pais: faker.location.country(),
-        ciudad: faker.location.city(),
-        aerolineas: [],
+      codigo: faker.string.numeric(3),
+      pais: faker.location.country(),
+      ciudad: faker.location.city(),
+      aerolineas: []
     };
     const newAeropuerto: AeropuertoEntity = await service.create(aeropuerto);
     expect(newAeropuerto).not.toBeNull();
@@ -103,6 +102,4 @@ describe('AeropuertoService', () => {
     await service.delete(aeropuerto.id);
     await expect(() => service.delete('0')).rejects.toHaveProperty('message', MESSAGES.AEROPUERTONOTFOUND);
   });
-
-  
 });

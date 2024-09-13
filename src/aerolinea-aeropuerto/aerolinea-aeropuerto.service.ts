@@ -1,14 +1,12 @@
-/* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { AerolineaEntity } from '../aerolinea/aerolinea.entity';
-import { Repository } from 'typeorm';
-import { AeropuertoEntity } from '../aeropuerto/aeropuerto.entity';
-import { BusinessError, BusinessLogicException, MESSAGES } from '../shared';
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {AerolineaEntity} from '../aerolinea/aerolinea.entity';
+import {Repository} from 'typeorm';
+import {AeropuertoEntity} from '../aeropuerto/aeropuerto.entity';
+import {BusinessError, BusinessLogicException, MESSAGES} from '../shared';
 
 @Injectable()
 export class AerolineaAeropuertoService {
-
   private relations: string[] = ['aeropuertos'];
 
   constructor(
@@ -26,7 +24,6 @@ export class AerolineaAeropuertoService {
     aerolinea.aeropuertos = [...aerolinea.aeropuertos, aeropueto];
     return await this.aerolineaRepository.save(aerolinea);
   }
-
 
   async findAeropuertosFromAerolineas(aerolineaId: string): Promise<AeropuertoEntity[]> {
     const aerolinea: AerolineaEntity = await this.aerolineaRepository.findOne({where: {id: aerolineaId}, relations: this.relations});
